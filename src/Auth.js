@@ -7,6 +7,7 @@ import {
   signInWithPopup,
 } from "firebase/auth"
 import { onAuthStateChanged } from "firebase/auth"
+import WorkflowHome from "./Workflows/WorkflowHome"
 
 const Auth = () => {
   const [user, loading, error] = useAuthState(auth)
@@ -25,7 +26,9 @@ const Auth = () => {
       {user ? (
         <div>
           {user.displayName}
+
           <button onClick={signOut}>Sign out</button>
+          <WorkflowHome />
         </div>
       ) : (
         <button onClick={signInWithGoogle}>Sign in with Google</button>
